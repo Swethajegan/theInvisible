@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Help</title>
+
+<!-- Montserrat Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/styles.css" />
+
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px; /* Space from the top */
+    text-align: center;
+  }
+  .main-title {
+    padding: 20px;
+  }
+  .contact-info {
+    padding: 18px;
+    font-size: 20px;
+    line-height: 2.6;
+  }
+  .email-frame {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+  }
+  .email-link {
+    color: #fff;
+    text-decoration: none;
+  }
+</style>
+
+</head>
+<body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+          <div class="menu-icon" onclick="openSidebar()">
+            <span class="material-icons-outlined">menu</span>
+          </div>
+          <div class="header-left">
+            <!-- Icons removed -->
+          </div>
+          <div class="header-right">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=swethajega02@gmail.com"><span class="material-icons-outlined">email</span></a>
+          </div>
+        </header>
+        <!-- End Header -->
+      
+        <!-- Sidebar -->
+        <aside id="sidebar">
+          <div class="sidebar-title">
+            <div class="sidebar-brand">
+              <img src="images/logo.png" class="logo" alt="Logo">
+            </div>
+            <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+          </div>
+      
+          <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+              <a href="index.html">
+                <span class="material-icons-outlined">dashboard</span> Dashboard
+              </a>
+            </li>
+            <li class="sidebar-list-item" id="recordsSidebarItem">
+              <a href="records.html">
+                <span class="material-icons-outlined">inventory_2</span> Records
+              </a>
+            </li>
+            <li class="sidebar-list-item active">
+              <a href="helpclick.html">
+                <span class="material-icons-outlined">poll</span> Help
+              </a>
+            </li>
+            <li class="sidebar-list-item">
+              <a href="#">
+                <span class="material-icons-outlined">settings</span> Settings
+              </a>
+            </li>
+          </ul>
+        </aside>
+        <!-- End Sidebar -->
+
+        <!-- Main -->
+        <main class="main-container">
+          <div class="main-title">
+            <h1>HELP</h1> 
+          </div>
+          <div class="contact-info">
+            <div class="email-frame">
+              <p>EMAIL : <a class="email-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=swethajega02@gmail.com">SWETHA</a></p>
+            </div>
+          </div>
+        </main>
+        <!-- End Main -->
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      function openSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.add('sidebar-open'); 
+      }
+
+      function closeSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.remove('sidebar-open'); 
+      }
+    </script>
+</body>
+</html>

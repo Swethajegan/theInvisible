@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+
+<!-- Montserrat Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/styles.css">
+
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .input-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .input-container button {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .input-container button:hover {
+    background-color: #45a049;
+  }
+
+  .otp-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+<div class="grid-container">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="menu-icon" onclick="openSidebar()">
+      <span class="material-icons-outlined">menu</span>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <div class="sidebar-title">
+      <div class="sidebar-brand">
+        <span class="material-icons-outlined">TI</span> The Invisible
+      </div>
+      <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+    </div>
+
+    <ul class="sidebar-list">
+      <li class="sidebar-list-item">
+        <a href="index.html" target="_blank">
+          <span class="material-icons-outlined">dashboard</span> Dashboard
+        </a>
+      </li>
+      <li class="sidebar-list-item" id="recordsSidebarItem">
+        <a href="records.html">
+          <span class="material-icons-outlined">inventory_2</span> Records
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="helpclick.html" target="_blank">
+          <span class="material-icons-outlined">poll</span> Help
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="#" target="_blank">
+          <span class="material-icons-outlined">settings</span> Settings
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <div class="main-title">
+      <h2>SETTINGS</h2>
+    </div>
+
+    <!-- Sign Up Button -->
+    <button onclick="showSignUp()">Sign Up</button>
+
+    <!-- Login Button -->
+    <button onclick="showLogin()">Log In</button>
+
+    <!-- Sign Out Button -->
+    <button onclick="signOut()">Sign Out</button>
+
+    <!-- Input Containers -->
+    <div class="input-container" id="signUpContainer">
+      <input type="email" id="signUpEmail" placeholder="Enter your email">
+      <button onclick="signUp()">Submit</button>
+    </div>
+
+    <div class="input-container" id="loginContainer">
+      <input type="email" id="loginEmail" placeholder="Enter your email">
+      <button onclick="login()">Submit</button>
+    </div>
+
+    <div class="otp-container" id="otpContainer">
+      <input type="text" id="otpInput" placeholder="Enter OTP">
+      <button onclick="verifyOtp()">Verify OTP</button>
+    </div>
+  </main>
+  <!-- End Main Content -->
+
+</div>
+
+<!-- Scripts -->
+<script>
+function showSignUp() {
+  document.getElementById('signUpContainer').style.display = 'flex';
+  document.getElementById('loginContainer').style.display = 'none';
+  document.getElementById('otpContainer').style.display = 'none';
+}
+
+function showLogin() {
+  document.getElementById('loginContainer').style.display = 'flex';
+  document.getElementById('signUpContainer').style.display = 'none';
+  document.getElementById('otpContainer').style.display = 'none';
+}
+
+function signUp() {
+  const email = document.getElementById('signUpEmail').value;
+  alert('Sign Up with email: ' + email);
+  document.getElementById('signUpContainer').style.display = 'none';
+  // Implement actual sign-up logic here, e.g., sending a request to your server
+}
+
+function login() {
+  const email = document.getElementById('loginEmail').value;
+  alert('Log In with email: ' + email);
+  // Send OTP request to the server
+  // Example: fetch('/send-otp', { method: 'POST', body: JSON.stringify({ email }) })
+  document.getElementById('otpContainer').style.display = 'flex';
+  document.getElementById('loginContainer').style.display = 'none';
+}
+
+function verifyOtp() {
+  const otp = document.getElementById('otpInput').value;
+  alert('Verify OTP: ' + otp);
+  // Implement actual OTP verification logic here, e.g., sending a request to your server
+}
+
+function signOut() {
+  alert('Signed Out');
+  // Implement actual sign-out logic here, e.g., clearing session data
+}
+
+// Functions for Sidebar
+function openSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.add('sidebar-open');
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.remove('sidebar-open');
+}
+</script>
+</body>
+</html>
